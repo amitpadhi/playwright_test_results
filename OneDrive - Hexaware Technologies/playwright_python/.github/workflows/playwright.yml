@@ -1,0 +1,27 @@
+name: Playwright Python Tests (Windows)
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          playwright install
+          playwright install-deps
+
+      - name: Run Playwright tests
+        run: pytest tests/test_store_page.py
