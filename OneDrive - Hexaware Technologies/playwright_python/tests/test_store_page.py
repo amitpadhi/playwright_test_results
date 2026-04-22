@@ -15,7 +15,7 @@ async def test_store_page_shows_store(page):
     rows_count = await page.locator("div.grid.grid-cols-1.md\\:grid-cols-2.xl\\:grid-cols-3.gap-3.md\\:gap-6> div:visible").count()
     # "Expected at least one product to be visible after filtering by Furniture and sorting by Highest Rated"
     assert rows_count == 3 
-    # check highest rated
+    # check highest rated product
     #highest_rated = page.locator('#sort-dropdown option[value="highest-rated"]')
     #await highest_rated.wait_for(state="visible", timeout=5000)
     #await highest_rated.click()
